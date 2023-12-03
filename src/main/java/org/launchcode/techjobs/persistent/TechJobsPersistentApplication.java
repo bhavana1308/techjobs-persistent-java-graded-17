@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TechJobsPersistentApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TechJobsPersistentApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(TechJobsPersistentApplication.class, args);
+    }
 
 }

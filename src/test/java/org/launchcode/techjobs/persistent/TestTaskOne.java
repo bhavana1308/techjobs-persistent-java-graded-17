@@ -11,13 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Created by LaunchCode
  */
-public class TestTaskOne extends AbstractTest{
+public class TestTaskOne extends AbstractTest {
 
     /*
-    * Check application.properties for the correct db connection data
-    * */
+     * Check application.properties for the correct db connection data
+     * */
     @Test
-    public void testDbConnectionProperties () throws IOException {
+    public void testDbConnectionProperties() throws IOException {
         String propsFileContents = getFileContents("src/main/resources/application.properties");
 
         Pattern urlPattern = Pattern.compile("spring.datasource.url=jdbc:mysql://localhost:3306/techjobs");
@@ -26,21 +26,21 @@ public class TestTaskOne extends AbstractTest{
         assertTrue(urlFound, "Database connection URL not found or is incorrect");
 
         Pattern usernamePattern = Pattern.compile("spring.datasource.username=techjobs");
-        Matcher usernameMatcher= usernamePattern.matcher(propsFileContents);
+        Matcher usernameMatcher = usernamePattern.matcher(propsFileContents);
         boolean usernameFound = usernameMatcher.find();
         assertTrue(usernameFound, "Database username not found or is incorrect");
 
         Pattern passwordPattern = Pattern.compile("spring.datasource.password=techjobs");
-        Matcher passwordMatcher= passwordPattern.matcher(propsFileContents);
+        Matcher passwordMatcher = passwordPattern.matcher(propsFileContents);
         boolean passwordFound = passwordMatcher.find();
         assertTrue(passwordFound, "Database password not found or is incorrect");
     }
 
     /*
-    * Check build.gradle for the required database dependencies
-    * */
+     * Check build.gradle for the required database dependencies
+     * */
     @Test
-    public void testDbGradleDependencies () throws IOException {
+    public void testDbGradleDependencies() throws IOException {
         String gradleFileContents = getFileContents("build.gradle");
 
         Pattern jpaPattern = Pattern.compile("org.springframework.boot:spring-boot-starter-data-jpa");
